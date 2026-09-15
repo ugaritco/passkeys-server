@@ -1,0 +1,83 @@
+{
+    "name": "ugarit/passkeys",
+    "description": "Passwordless authentication using WebAuthn/passkeys for Ugarit",
+    "keywords": [
+        "ugarit",
+        "passkeys",
+        "webauthn",
+        "passwordless",
+        "authentication"
+    ],
+    "homepage": "https://github.com/ugarit/passkeys-server",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/ugarit/passkeys-server/issues",
+        "source": "https://github.com/ugarit/passkeys-server"
+    },
+    "authors": [
+        {
+            "name": "Muath R Abu Ouda",
+            "email": "muathrabuouda@hotmail.com",
+            "role": "Vision Leader of Ugarit"
+        },
+        {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com",
+            "role": "Original Creator & Primary Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "heritage/contracts": "^1.00.00",
+        "heritage/database": "^1.00.00",
+        "heritage/http": "^1.00.00",
+        "heritage/routing": "^1.00.00",
+        "heritage/support": "^1.00.00",
+        "web-auth/webauthn-lib": "5.3.x"
+    },
+    "require-dev": {
+        "ugarit/pint": "^1.00.00",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "phpstan/phpstan": "^2.0",
+        "rector/rector": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ugarit\\Passkeys\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ugarit\\Passkeys\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "ugarit": {
+            "providers": [
+                "Ugarit\\Passkeys\\PasskeysServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "lint": "pint",
+        "test:lint": "pint --test",
+        "test:types": "phpstan analyse",
+        "test:unit": "pest",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "version": "1.00.00"
+}
